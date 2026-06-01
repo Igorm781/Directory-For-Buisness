@@ -1,0 +1,785 @@
+{
+  "building": {
+    "id": "b1",
+    "name": "Malden Building ",
+    "address": "578 Main St.",
+    "logo_url": "https://ui-avatars.com/api/?name=Apex+Tower&background=0D8ABC&color=fff",
+    "created_at": "2026-05-12T01:29:16.985Z"
+  },
+  "floors": [
+    {
+      "id": "f0",
+      "building_id": "b1",
+      "number": 0,
+      "label": "Basement",
+      "display_order": 1,
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "f1",
+      "building_id": "b1",
+      "number": 1,
+      "label": "Floor 1",
+      "display_order": 2,
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "f2",
+      "building_id": "b1",
+      "number": 2,
+      "label": "Floor 2",
+      "display_order": 3,
+      "created_at": "2026-05-12T01:29:16.985Z"
+    }
+  ],
+  "suites": [
+    {
+      "id": "s1",
+      "floor_id": "f1",
+      "number": "101",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s2",
+      "floor_id": "f0",
+      "number": "B2",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s3",
+      "floor_id": "f1",
+      "number": "103",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s4",
+      "floor_id": "f1",
+      "number": "104",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s5",
+      "floor_id": "f0",
+      "number": "B5",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s6",
+      "floor_id": "f0",
+      "number": "B14",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s7",
+      "floor_id": "f2",
+      "number": "202A",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s8",
+      "floor_id": "f2",
+      "number": "202B",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s9",
+      "floor_id": "f0",
+      "number": "B18",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s10",
+      "floor_id": "f0",
+      "number": "B3",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s11",
+      "floor_id": "f0",
+      "number": "B11",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s12",
+      "floor_id": "f0",
+      "number": "B12",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s13",
+      "floor_id": "f0",
+      "number": "B13",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s14",
+      "floor_id": "f0",
+      "number": "B15",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s15",
+      "floor_id": "f0",
+      "number": "B17",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s16",
+      "floor_id": "f0",
+      "number": "B1",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s17",
+      "floor_id": "f0",
+      "number": "B8",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s18",
+      "floor_id": "f0",
+      "number": "B9",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s19",
+      "floor_id": "f0",
+      "number": "B4",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s20",
+      "floor_id": "f0",
+      "number": "B7",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s21",
+      "floor_id": "f0",
+      "number": "B6",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s22",
+      "floor_id": "f2",
+      "number": "202C",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s23",
+      "floor_id": "f2",
+      "number": "201",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "s24",
+      "floor_id": "f2",
+      "number": "202D",
+      "created_at": "2026-05-12T01:29:16.985Z"
+    }
+  ],
+  "businesses": [
+    {
+      "id": "bus1",
+      "suite_id": null,
+      "name": "American Dental Consultants",
+      "slug": "american-dental-consultants-101",
+      "description": "Welcome to American Dental Consultants, located in Suite 101.",
+      "logo_url": "https://ui-avatars.com/api/?name=American%20Dental%20Consultants&background=random&color=fff",
+      "category": "Dental",
+      "phone": "617-123-4567",
+      "email": "contact@american-dental-consultants.demo",
+      "website": "https://american-dental-consultants.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 1,
+      "created_at": "2026-05-12T01:29:16.985Z",
+      "updated_at": "2026-05-30T22:31:25.909Z",
+      "location": "101",
+      "floor_id": "f1"
+    },
+    {
+      "id": "bus2",
+      "suite_id": "s2",
+      "name": "American Dental Consultants",
+      "slug": "american-dental-consultants-b2",
+      "description": "Welcome to American Dental Consultants, located in Suite B2.",
+      "logo_url": "https://ui-avatars.com/api/?name=American%20Dental%20Consultants&background=random&color=fff",
+      "category": "Dental",
+      "phone": "555-0101",
+      "email": "contact@american-dental-consultants.demo",
+      "website": "https://american-dental-consultants.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 2,
+      "created_at": "2026-05-12T01:29:16.985Z",
+      "updated_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "bus3",
+      "suite_id": "s3",
+      "name": "B+AC, LLC",
+      "slug": "b-ac-llc-103",
+      "description": "Welcome to B+AC, LLC, located in Suite 103.",
+      "logo_url": "https://ui-avatars.com/api/?name=B%2BAC%2C%20LLC&background=random&color=fff",
+      "category": "Consulting",
+      "phone": "555-0102",
+      "email": "contact@b-ac-llc.demo",
+      "website": "https://b-ac-llc.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 3,
+      "created_at": "2026-05-12T01:29:16.985Z",
+      "updated_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "bus4",
+      "suite_id": "s4",
+      "name": "B+AC, LLC",
+      "slug": "b-ac-llc-104",
+      "description": "Welcome to B+AC, LLC, located in Suite 104.",
+      "logo_url": "https://ui-avatars.com/api/?name=B%2BAC%2C%20LLC&background=random&color=fff",
+      "category": "Consulting",
+      "phone": "555-0103",
+      "email": "contact@b-ac-llc.demo",
+      "website": "https://b-ac-llc.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 4,
+      "created_at": "2026-05-12T01:29:16.985Z",
+      "updated_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "bus5",
+      "suite_id": "s5",
+      "name": "Back Bay MD, LLC",
+      "slug": "back-bay-md-llc-b5",
+      "description": "Welcome to Back Bay MD, LLC, located in Suite B5.",
+      "logo_url": "https://ui-avatars.com/api/?name=Back%20Bay%20MD%2C%20LLC&background=random&color=fff",
+      "category": "Healthcare",
+      "phone": "555-0104",
+      "email": "contact@back-bay-md-llc.demo",
+      "website": "https://back-bay-md-llc.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 5,
+      "created_at": "2026-05-12T01:29:16.985Z",
+      "updated_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "bus6",
+      "suite_id": "s6",
+      "name": "Beauty & Brow",
+      "slug": "beauty-brow-b14",
+      "description": "Welcome to Beauty & Brow, located in Suite B14.",
+      "logo_url": "https://ui-avatars.com/api/?name=Beauty%20%26%20Brow&background=random&color=fff",
+      "category": "Beauty & Spa",
+      "phone": "555-0105",
+      "email": "contact@beauty-brow.demo",
+      "website": "https://beauty-brow.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 6,
+      "created_at": "2026-05-12T01:29:16.985Z",
+      "updated_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "bus7",
+      "suite_id": "s7",
+      "name": "Certainty Testing LLC",
+      "slug": "certainty-testing-llc-202a",
+      "description": "Welcome to Certainty Testing LLC, located in Suite 202A.",
+      "logo_url": "https://ui-avatars.com/api/?name=Certainty%20Testing%20LLC&background=random&color=fff",
+      "category": "Healthcare",
+      "phone": "555-0106",
+      "email": "contact@certainty-testing-llc.demo",
+      "website": "https://certainty-testing-llc.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 7,
+      "created_at": "2026-05-12T01:29:16.985Z",
+      "updated_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "bus8",
+      "suite_id": "s8",
+      "name": "Clay Mind Psychiatry, LLC",
+      "slug": "clay-mind-psychiatry-llc-202b",
+      "description": "Welcome to Clay Mind Psychiatry, LLC, located in Suite 202B.",
+      "logo_url": "https://ui-avatars.com/api/?name=Clay%20Mind%20Psychiatry%2C%20LLC&background=random&color=fff",
+      "category": "Psychiatry",
+      "phone": "555-0107",
+      "email": "contact@clay-mind-psychiatry-llc.demo",
+      "website": "https://clay-mind-psychiatry-llc.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 8,
+      "created_at": "2026-05-12T01:29:16.985Z",
+      "updated_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "bus9",
+      "suite_id": "s9",
+      "name": "Dean Dental Lab",
+      "slug": "dean-dental-lab-b18",
+      "description": "Welcome to Dean Dental Lab, located in Suite B18.",
+      "logo_url": "https://ui-avatars.com/api/?name=Dean%20Dental%20Lab&background=random&color=fff",
+      "category": "Dental",
+      "phone": "555-0108",
+      "email": "contact@dean-dental-lab.demo",
+      "website": "https://dean-dental-lab.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 9,
+      "created_at": "2026-05-12T01:29:16.985Z",
+      "updated_at": "2026-05-12T01:29:16.985Z"
+    },
+    {
+      "id": "bus10",
+      "suite_id": "s10",
+      "name": "EMDR & Performance Counseling: Flow Therapy",
+      "slug": "emdr-performance-counseling-flow-therapy-b3",
+      "description": "Welcome to EMDR & Performance Counseling: Flow Therapy, located in Suite B3.",
+      "logo_url": "https://ui-avatars.com/api/?name=EMDR%20%26%20Performance%20Counseling%3A%20Flow%20Therapy&background=random&color=fff",
+      "category": "Counseling",
+      "phone": "555-0109",
+      "email": "contact@emdr-performance-counseling-flow-therapy.demo",
+      "website": "https://emdr-performance-counseling-flow-therapy.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 10,
+      "created_at": "2026-05-12T01:29:16.986Z",
+      "updated_at": "2026-05-12T01:29:16.986Z"
+    },
+    {
+      "id": "bus11",
+      "suite_id": "s11",
+      "name": "Guardian Angel Senior Services",
+      "slug": "guardian-angel-senior-services-b11",
+      "description": "Welcome to Guardian Angel Senior Services, located in Suite B11.",
+      "logo_url": "https://ui-avatars.com/api/?name=Guardian%20Angel%20Senior%20Services&background=random&color=fff",
+      "category": "Senior Care",
+      "phone": "555-0100",
+      "email": "contact@guardian-angel-senior-services.demo",
+      "website": "https://guardian-angel-senior-services.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 11,
+      "created_at": "2026-05-12T01:29:16.986Z",
+      "updated_at": "2026-05-12T01:29:16.986Z"
+    },
+    {
+      "id": "bus12",
+      "suite_id": "s12",
+      "name": "Guardian Angel Senior Services",
+      "slug": "guardian-angel-senior-services-b12",
+      "description": "Welcome to Guardian Angel Senior Services, located in Suite B12.",
+      "logo_url": "https://ui-avatars.com/api/?name=Guardian%20Angel%20Senior%20Services&background=random&color=fff",
+      "category": "Senior Care",
+      "phone": "555-0101",
+      "email": "contact@guardian-angel-senior-services.demo",
+      "website": "https://guardian-angel-senior-services.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 12,
+      "created_at": "2026-05-12T01:29:16.986Z",
+      "updated_at": "2026-05-12T01:29:16.986Z"
+    },
+    {
+      "id": "bus13",
+      "suite_id": "s13",
+      "name": "Guardian Angel Senior Services",
+      "slug": "guardian-angel-senior-services-b13",
+      "description": "Welcome to Guardian Angel Senior Services, located in Suite B13.",
+      "logo_url": "https://ui-avatars.com/api/?name=Guardian%20Angel%20Senior%20Services&background=random&color=fff",
+      "category": "Senior Care",
+      "phone": "555-0102",
+      "email": "contact@guardian-angel-senior-services.demo",
+      "website": "https://guardian-angel-senior-services.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 13,
+      "created_at": "2026-05-12T01:29:16.986Z",
+      "updated_at": "2026-05-12T01:29:16.986Z"
+    },
+    {
+      "id": "bus14",
+      "suite_id": "s14",
+      "name": "Guardian Angel Senior Services",
+      "slug": "guardian-angel-senior-services-b15",
+      "description": "Welcome to Guardian Angel Senior Services, located in Suite B15.",
+      "logo_url": "https://ui-avatars.com/api/?name=Guardian%20Angel%20Senior%20Services&background=random&color=fff",
+      "category": "Senior Care",
+      "phone": "555-0103",
+      "email": "contact@guardian-angel-senior-services.demo",
+      "website": "https://guardian-angel-senior-services.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 14,
+      "created_at": "2026-05-12T01:29:16.986Z",
+      "updated_at": "2026-05-12T01:29:16.986Z"
+    },
+    {
+      "id": "bus15",
+      "suite_id": "s15",
+      "name": "Guardian Angel Senior Services",
+      "slug": "guardian-angel-senior-services-b17",
+      "description": "Welcome to Guardian Angel Senior Services, located in Suite B17.",
+      "logo_url": "https://ui-avatars.com/api/?name=Guardian%20Angel%20Senior%20Services&background=random&color=fff",
+      "category": "Senior Care",
+      "phone": "555-0104",
+      "email": "contact@guardian-angel-senior-services.demo",
+      "website": "https://guardian-angel-senior-services.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 15,
+      "created_at": "2026-05-12T01:29:16.986Z",
+      "updated_at": "2026-05-12T01:29:16.986Z"
+    },
+    {
+      "id": "bus16",
+      "suite_id": "s8",
+      "name": "Healing Hearts Care Center LLC - Edilia Gomes",
+      "slug": "healing-hearts-care-center-llc-edilia-gomes-202b",
+      "description": "Welcome to Healing Hearts Care Center LLC - Edilia Gomes, located in Suite 202B.",
+      "logo_url": "https://ui-avatars.com/api/?name=Healing%20Hearts%20Care%20Center%20LLC%20-%20Edilia%20Gomes&background=random&color=fff",
+      "category": "Healthcare",
+      "phone": "555-0105",
+      "email": "contact@healing-hearts-care-center-llc-edilia-gomes.demo",
+      "website": "https://healing-hearts-care-center-llc-edilia-gomes.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 16,
+      "created_at": "2026-05-12T01:29:16.986Z",
+      "updated_at": "2026-05-12T01:29:16.986Z"
+    },
+    {
+      "id": "bus17",
+      "suite_id": "s16",
+      "name": "Lino Physical Therapy",
+      "slug": "lino-physical-therapy-b1",
+      "description": "Welcome to Lino Physical Therapy, located in Suite B1.",
+      "logo_url": "https://ui-avatars.com/api/?name=Lino%20Physical%20Therapy&background=random&color=fff",
+      "category": "Physical Therapy",
+      "phone": "555-0106",
+      "email": "contact@lino-physical-therapy.demo",
+      "website": "https://lino-physical-therapy.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 17,
+      "created_at": "2026-05-12T01:29:16.986Z",
+      "updated_at": "2026-05-12T01:29:16.986Z"
+    },
+    {
+      "id": "bus18",
+      "suite_id": "s17",
+      "name": "Nourish Inc",
+      "slug": "nourish-inc-b8",
+      "description": "Welcome to Nourish Inc, located in Suite B8.",
+      "logo_url": "https://ui-avatars.com/api/?name=Nourish%20Inc&background=random&color=fff",
+      "category": "Wellness",
+      "phone": "555-0107",
+      "email": "contact@nourish-inc.demo",
+      "website": "https://nourish-inc.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 18,
+      "created_at": "2026-05-12T01:29:16.986Z",
+      "updated_at": "2026-05-12T01:29:16.986Z"
+    },
+    {
+      "id": "bus19",
+      "suite_id": "s18",
+      "name": "Oak Path Counseling Services Inc",
+      "slug": "oak-path-counseling-services-inc-b9",
+      "description": "Welcome to Oak Path Counseling Services Inc, located in Suite B9.",
+      "logo_url": "https://ui-avatars.com/api/?name=Oak%20Path%20Counseling%20Services%20Inc&background=random&color=fff",
+      "category": "Counseling",
+      "phone": "555-0108",
+      "email": "contact@oak-path-counseling-services-inc.demo",
+      "website": "https://oak-path-counseling-services-inc.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 19,
+      "created_at": "2026-05-12T01:29:16.986Z",
+      "updated_at": "2026-05-12T01:29:16.986Z"
+    },
+    {
+      "id": "bus20",
+      "suite_id": "s19",
+      "name": "One Clearview Health PLLC",
+      "slug": "one-clearview-health-pllc-b4",
+      "description": "Welcome to One Clearview Health PLLC, located in Suite B4.",
+      "logo_url": "https://ui-avatars.com/api/?name=One%20Clearview%20Health%20PLLC&background=random&color=fff",
+      "category": "Healthcare",
+      "phone": "555-0109",
+      "email": "contact@one-clearview-health-pllc.demo",
+      "website": "https://one-clearview-health-pllc.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 20,
+      "created_at": "2026-05-12T01:29:16.986Z",
+      "updated_at": "2026-05-12T01:29:16.986Z"
+    },
+    {
+      "id": "bus21",
+      "suite_id": "s20",
+      "name": "One Clearview Health PLLC",
+      "slug": "one-clearview-health-pllc-b7",
+      "description": "Welcome to One Clearview Health PLLC, located in Suite B7.",
+      "logo_url": "https://ui-avatars.com/api/?name=One%20Clearview%20Health%20PLLC&background=random&color=fff",
+      "category": "Healthcare",
+      "phone": "555-0100",
+      "email": "contact@one-clearview-health-pllc.demo",
+      "website": "https://one-clearview-health-pllc.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 21,
+      "created_at": "2026-05-12T01:29:16.986Z",
+      "updated_at": "2026-05-12T01:29:16.986Z"
+    },
+    {
+      "id": "bus22",
+      "suite_id": "s21",
+      "name": "Psychoanalysis Office",
+      "slug": "psychoanalysis-office-b6",
+      "description": "Welcome to Psychoanalysis Office, located in Suite B6.",
+      "logo_url": "https://ui-avatars.com/api/?name=Psychoanalysis%20Office&background=random&color=fff",
+      "category": "Psychiatry",
+      "phone": "555-0101",
+      "email": "contact@psychoanalysis-office.demo",
+      "website": "https://psychoanalysis-office.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 22,
+      "created_at": "2026-05-12T01:29:16.986Z",
+      "updated_at": "2026-05-12T01:29:16.986Z"
+    },
+    {
+      "id": "bus23",
+      "suite_id": "s22",
+      "name": "Rite Time Home Care Services",
+      "slug": "rite-time-home-care-services-202c",
+      "description": "Welcome to Rite Time Home Care Services, located in Suite 202C.",
+      "logo_url": "https://ui-avatars.com/api/?name=Rite%20Time%20Home%20Care%20Services&background=random&color=fff",
+      "category": "Home Care",
+      "phone": "555-0102",
+      "email": "contact@rite-time-home-care-services.demo",
+      "website": "https://rite-time-home-care-services.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 23,
+      "created_at": "2026-05-12T01:29:16.986Z",
+      "updated_at": "2026-05-12T01:29:16.986Z"
+    },
+    {
+      "id": "bus24",
+      "suite_id": "s23",
+      "name": "Tufts Medical Center Community Care",
+      "slug": "tufts-medical-center-community-care-201",
+      "description": "Welcome to Tufts Medical Center Community Care, located in Suite 201.",
+      "logo_url": "https://ui-avatars.com/api/?name=Tufts%20Medical%20Center%20Community%20Care&background=random&color=fff",
+      "category": "Medical",
+      "phone": "555-0103",
+      "email": "contact@tufts-medical-center-community-care.demo",
+      "website": "https://tufts-medical-center-community-care.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 24,
+      "created_at": "2026-05-12T01:29:16.986Z",
+      "updated_at": "2026-05-12T01:29:16.986Z"
+    },
+    {
+      "id": "bus25",
+      "suite_id": "s24",
+      "name": "Wellness Institute of Boston",
+      "slug": "wellness-institute-of-boston-202d",
+      "description": "Welcome to Wellness Institute of Boston, located in Suite 202D.",
+      "logo_url": "https://ui-avatars.com/api/?name=Wellness%20Institute%20of%20Boston&background=random&color=fff",
+      "category": "Wellness",
+      "phone": "555-0104",
+      "email": "contact@wellness-institute-of-boston.demo",
+      "website": "https://wellness-institute-of-boston.demo",
+      "hours": {
+        "mon": "9am - 5pm",
+        "tue": "9am - 5pm",
+        "wed": "9am - 5pm",
+        "thu": "9am - 5pm",
+        "fri": "9am - 5pm"
+      },
+      "is_active": true,
+      "is_featured": false,
+      "display_order": 25,
+      "created_at": "2026-05-12T01:29:16.986Z",
+      "updated_at": "2026-05-12T01:29:16.986Z"
+    }
+  ]
+}
