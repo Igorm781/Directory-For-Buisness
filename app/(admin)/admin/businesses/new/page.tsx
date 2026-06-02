@@ -67,7 +67,7 @@ export default function AddBusinessPage() {
   }
 
   return (
-    <div className="p-8 max-w-4xl mx-auto">
+    <div className="p-4 sm:p-6 md:p-8 max-w-4xl mx-auto">
       <div className="mb-6">
         <Link href="/admin" className="inline-flex items-center text-sm font-semibold text-gray-400 hover:text-blue-400 transition-colors">
           <ArrowLeft className="mr-2 h-4 w-4" />
@@ -75,15 +75,15 @@ export default function AddBusinessPage() {
         </Link>
       </div>
 
-      <form onSubmit={handleSubmit} className="rounded-xl border border-[#1d1f2e] bg-[#111219]/60 p-8 md:p-10 shadow-xl space-y-8 backdrop-blur-md">
+      <form onSubmit={handleSubmit} className="rounded-xl border border-[#1d1f2e] bg-[#111219]/60 p-5 sm:p-8 md:p-10 shadow-xl space-y-8 backdrop-blur-md">
         
         {/* Form Header mimicking edit details screenshot */}
-        <div className="flex items-center justify-between border-b border-[#1d1f2e] pb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#1d1f2e] pb-6">
           <div>
             <h1 className="text-2xl font-bold tracking-tight text-white">Add Business Details</h1>
             <p className="text-sm text-gray-400 mt-1">Directly create listing information.</p>
           </div>
-          <div className="flex gap-3">
+          <div className="flex gap-3 w-full sm:w-auto justify-end">
             <Link href="/admin">
               <Button variant="outline" type="button" disabled={loading} className="border-[#1d1f2e] bg-[#111219] text-gray-300 hover:bg-[#1c1e28] hover:text-white">
                 <X className="mr-2 h-4 w-4" />

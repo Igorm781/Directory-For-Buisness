@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Building2, LayoutDashboard, Settings } from "lucide-react";
+import { Building2, LayoutDashboard, Settings, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navigation = [
@@ -10,14 +10,28 @@ const navigation = [
   { name: "Settings", href: "/admin/settings", icon: Settings },
 ];
 
-export function AdminSidebar() {
+interface AdminSidebarProps {
+  onClose?: () => void;
+}
+
+export function AdminSidebar({ onClose }: AdminSidebarProps) {
   const pathname = usePathname();
 
   return (
-    <div className="flex h-full w-64 flex-col bg-[#0b0c13] border-r border-[#1d1f2e]">
-      <div className="flex h-16 shrink-0 items-center px-6 border-b border-[#1d1f2e]">
-        <Building2 className="h-6 w-6 text-blue-500 mr-2" />
-        <span className="font-semibold tracking-tight text-white">Admin Panel</span>
+    <div className="flex h-full w-full flex-col bg-[#0b0c13] border-r border-[#1d1f2e]">
+      <div className="flex h-16 shrink-0 items-center justify-between px-6 border-b border-[#1d1f2e]">
+        <div className="flex items-center">
+          <Building2 className="h-6 w-6 text-blue-500 mr-2" />
+          <span className="font-semibold tracking-tight text-white">Admin Panel</span>
+        </div>
+        {onClose && (
+          <button 
+            onClick={onClose}
+            className="md:hidden p-1.5 text-gray-400 hover:text-white rounded-lg hover:bg-[#1c1e28] transition-colors"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        )}
       </div>
       <div className="flex flex-1 flex-col overflow-y-auto pt-4 px-3">
         <nav className="flex-1 space-y-1">
@@ -27,6 +41,7 @@ export function AdminSidebar() {
               <Link
                 key={item.name}
                 href={item.href}
+                onClick={() => onClose?.()}
                 className={cn(
                   isActive 
                     ? "bg-[#1c1e28] text-white border border-[#2b2d3d] shadow-[0_0_15px_rgba(59,130,246,0.02)]" 
@@ -48,7 +63,11 @@ export function AdminSidebar() {
         </nav>
       </div>
       <div className="border-t border-[#1d1f2e] p-4">
-        <Link href="/" className="text-sm font-semibold text-gray-400 hover:text-blue-400 transition-colors">
+        <Link 
+          href="/" 
+          onClick={() => onClose?.()}
+          className="text-sm font-semibold text-gray-400 hover:text-blue-400 transition-colors"
+        >
           View Public Directory
         </Link>
       </div>

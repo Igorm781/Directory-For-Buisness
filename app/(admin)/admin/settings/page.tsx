@@ -31,7 +31,7 @@ export default function AdminSettingsPage() {
   if (!building) return <div className="p-8">Loading settings...</div>;
 
   return (
-    <div className="p-8 max-w-4xl mx-auto">
+    <div className="p-4 sm:p-6 md:p-8 max-w-4xl mx-auto">
       <div className="mb-8">
         <h1 className="text-2xl font-bold tracking-tight text-white">Settings</h1>
         <p className="text-gray-400">Manage your building's directory settings.</p>

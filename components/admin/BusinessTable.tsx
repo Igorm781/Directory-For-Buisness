@@ -17,7 +17,8 @@ export function BusinessTable({ businesses }: { businesses: Business[] }) {
 
   return (
     <>
-      <div className="rounded-xl border border-[#1d1f2e] bg-[#111219]/60 shadow-xl overflow-hidden backdrop-blur-md">
+      {/* Desktop Table View */}
+      <div className="hidden md:block rounded-xl border border-[#1d1f2e] bg-[#111219]/60 shadow-xl overflow-hidden backdrop-blur-md">
         <Table>
           <TableHeader className="bg-[#0b0c13]/85 border-b border-[#1d1f2e]">
             <TableRow>
@@ -89,6 +90,69 @@ export function BusinessTable({ businesses }: { businesses: Business[] }) {
             ))}
           </TableBody>
         </Table>
+      </div>
+
+      {/* Mobile Card Grid Layout */}
+      <div className="grid grid-cols-1 gap-4 md:hidden">
+        {businesses.map((business) => (
+          <div key={business.id} className="bg-[#111219]/60 rounded-xl p-5 border border-[#1d1f2e] hover:border-blue-500/20 transition-all duration-300 relative">
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex items-center gap-3">
+                {business.logo_url ? (
+                  <img src={business.logo_url} alt="" className="h-10 w-10 rounded-md bg-[#0b0c13] border border-[#1d1f2e] object-cover" />
+                ) : (
+                  <div className="h-10 w-10 rounded-md bg-[#1c1e28] border border-[#1d1f2e] flex items-center justify-center text-sm font-semibold text-blue-400">
+                    {business.name.charAt(0)}
+                  </div>
+                )}
+                <div className="min-w-0">
+                  <h3 className="font-semibold text-white text-base leading-tight truncate">{business.name}</h3>
+                  <p className="text-xs text-gray-400 mt-0.5">{business.category || "No Category"}</p>
+                </div>
+              </div>
+              
+              <DropdownMenu>
+                <DropdownMenuTrigger className="text-gray-400 hover:text-white p-1.5 rounded-lg hover:bg-[#1c1e28] transition-colors outline-none shrink-0">
+                  <MoreHorizontal className="h-5 w-5" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem onClick={() => router.push(`/admin/businesses/${business.id}/edit`)}>
+                    Customize
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    className="text-red-400 focus:text-red-400 focus:bg-red-500/10 cursor-pointer"
+                    onClick={() => setDeleteId(business.id)}
+                  >
+                    Delete
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+            
+            <div className="mt-4 pt-3 border-t border-[#1d1f2e]/60 flex items-center justify-between text-xs text-gray-300">
+              <div className="flex items-center gap-1.5">
+                <span className="text-gray-500">Location:</span>
+                <span className="font-medium text-white">{business.location || (business.suite ? `Suite ${business.suite.number}` : "-")}</span>
+              </div>
+              <div className="flex gap-1.5">
+                {business.is_active ? (
+                  <Badge variant="outline" className="bg-emerald-500/10 text-emerald-400 border-emerald-500/20 font-medium px-2 py-0.5 text-[10px]">
+                    Active
+                  </Badge>
+                ) : (
+                  <Badge variant="outline" className="bg-gray-500/10 text-gray-400 border-gray-500/20 font-medium px-2 py-0.5 text-[10px]">
+                    Inactive
+                  </Badge>
+                )}
+                {business.is_featured && (
+                  <Badge variant="outline" className="bg-amber-500/10 text-amber-400 border-amber-500/20 font-medium px-2 py-0.5 text-[10px]">
+                    Featured
+                  </Badge>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
       <AlertDialog open={!!deleteId} onOpenChange={(open) => !open && setDeleteId(null)}>

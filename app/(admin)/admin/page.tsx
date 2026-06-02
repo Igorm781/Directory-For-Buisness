@@ -18,7 +18,7 @@ export default async function AdminDashboardPage() {
   ];
 
   return (
-    <div className="p-8 max-w-7xl mx-auto">
+    <div className="p-4 sm:p-6 md:p-8 max-w-7xl mx-auto">
       <div className="sm:flex sm:items-center sm:justify-between mb-8">
         <div>
           <h1 className="text-2xl font-bold tracking-tight text-white">Dashboard & Businesses</h1>
@@ -26,9 +26,9 @@ export default async function AdminDashboardPage() {
             Overview of your building directory and company listings.
           </p>
         </div>
-        <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-          <Link href="/admin/businesses/new">
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white shadow-[0_0_15px_rgba(37,99,235,0.2)]">
+        <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none w-full sm:w-auto">
+          <Link href="/admin/businesses/new" className="w-full block sm:inline-block">
+            <Button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white shadow-[0_0_15px_rgba(37,99,235,0.2)]">
               <Plus className="mr-2 h-4 w-4" />
               Add Business
             </Button>
