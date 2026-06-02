@@ -155,9 +155,9 @@ export function WeatherWidget() {
 
   if (loading || !data) {
     return (
-      <div className="flex-1 flex flex-col justify-center items-center h-full min-h-[380px] bg-gradient-to-b from-[#111219]/90 to-[#0e101e]/90 border border-[#1d1f2e] rounded-2xl p-6 shadow-xl">
-        <Loader2 className="h-8 w-8 text-blue-500 animate-spin" />
-        <span className="text-sm text-slate-400 mt-2">Loading live weather...</span>
+      <div className="flex-1 flex flex-col justify-center items-center h-full min-h-[380px] bg-white border border-slate-200 rounded-2xl p-6 shadow-md">
+        <Loader2 className="h-8 w-8 text-blue-600 animate-spin" />
+        <span className="text-sm text-slate-500 mt-2">Loading live weather...</span>
       </div>
     );
   }
@@ -167,21 +167,21 @@ export function WeatherWidget() {
   const CurrentIcon = currentCondition.icon;
 
   return (
-    <div className="flex-1 bg-gradient-to-b from-blue-600/10 to-[#111219]/80 border border-[#1d1f2e] hover:border-blue-500/20 transition-all duration-300 rounded-2xl p-6 md:p-8 shadow-[0_0_20px_rgba(37,99,235,0.05)] flex flex-col justify-between h-full">
+    <div className="flex-1 bg-white border border-slate-200 hover:border-blue-500/20 transition-all duration-300 rounded-2xl p-6 md:p-8 shadow-md flex flex-col justify-between h-full bg-gradient-to-b from-blue-50/20 to-white">
       
       {/* Current Weather (Top) */}
-      <div className="flex flex-col items-center text-center border-b border-[#1d1f2e]/60 pb-6">
-        <span className="text-slate-500 text-xs tracking-widest font-bold uppercase mb-2">Local Weather</span>
+      <div className="flex flex-col items-center text-center border-b border-slate-100 pb-6">
+        <span className="text-slate-400 text-xs tracking-widest font-bold uppercase mb-2">Local Weather</span>
         <div className="flex items-center gap-4 justify-center">
-          <CurrentIcon className="w-14 h-14 text-blue-400 shrink-0 drop-shadow-[0_0_10px_rgba(96,165,250,0.25)]" />
-          <span className="text-6xl font-extrabold text-white tracking-tighter leading-none select-none">
+          <CurrentIcon className="w-14 h-14 text-blue-500 shrink-0 drop-shadow-[0_0_10px_rgba(59,130,246,0.15)]" />
+          <span className="text-6xl font-extrabold text-slate-900 tracking-tighter leading-none select-none">
             {data.currentTemp}°
           </span>
         </div>
-        <span className="text-slate-200 font-semibold mt-3 text-base">
+        <span className="text-slate-700 font-semibold mt-3 text-base">
           {currentCondition.label}
         </span>
-        <span className="text-[#2563eb] text-[10px] tracking-wider font-bold uppercase mt-1">
+        <span className="text-blue-600 text-[10px] tracking-wider font-bold uppercase mt-1">
           Malden, MA
         </span>
       </div>
@@ -195,7 +195,7 @@ export function WeatherWidget() {
           return (
             <div 
               key={i} 
-              className="flex items-center justify-between border-b border-[#1d1f2e]/30 pb-2 last:border-0 last:pb-0"
+              className="flex items-center justify-between border-b border-slate-100 pb-2 last:border-0 last:pb-0"
             >
               {/* Hour */}
               <span className="text-xs font-semibold text-slate-400 w-10">
@@ -203,15 +203,15 @@ export function WeatherWidget() {
               </span>
               
               {/* Icon */}
-              <HourIcon className="w-4.5 h-4.5 text-blue-400 shrink-0" />
+              <HourIcon className="w-4.5 h-4.5 text-blue-500 shrink-0" />
               
               {/* Temp */}
-              <span className="text-xs font-bold text-slate-200 w-8 text-right">
+              <span className="text-xs font-bold text-slate-800 w-8 text-right">
                 {hourForecast.temp}°
               </span>
               
               {/* Label */}
-              <span className="text-[10px] text-slate-500 font-medium truncate pl-2 flex-1 text-right">
+              <span className="text-[10px] text-slate-400 font-medium truncate pl-2 flex-1 text-right">
                 {condition.label}
               </span>
             </div>
