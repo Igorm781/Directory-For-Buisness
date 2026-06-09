@@ -6,21 +6,32 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
+import { signInAction } from "@/lib/actions";
 
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
+    setLoading(true);
 
-    if (email === "admin@gmail.com" && password === "123Password") {
-      router.push("/admin");
-    } else {
-      setError("Invalid email or password. Please try again.");
+    try {
+      const res = await signInAction(email, password);
+      if (res?.error) {
+        setError(res.error);
+        setLoading(false);
+      } else {
+        router.push("/admin");
+        router.refresh();
+      }
+    } catch (err: any) {
+      setError(err?.message || "An unexpected error occurred.");
+      setLoading(false);
     }
   }
 
@@ -58,6 +69,7 @@ export default function LoginPage() {
                 className="mt-1 bg-[#1a1b26] border-[#2b2d3d] text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 hover:border-slate-700 transition-colors"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                disabled={loading}
               />
             </div>
             <div>
@@ -71,13 +83,18 @@ export default function LoginPage() {
                 className="mt-1 bg-[#1a1b26] border-[#2b2d3d] text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 hover:border-slate-700 transition-colors"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                disabled={loading}
               />
             </div>
           </div>
 
           <div>
-            <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white shadow-[0_0_15px_rgba(37,99,235,0.2)] transition-all font-bold">
-              Sign in
+            <Button 
+              type="submit" 
+              disabled={loading}
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white shadow-[0_0_15px_rgba(37,99,235,0.2)] transition-all font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? "Signing in..." : "Sign in"}
             </Button>
           </div>
         </form>

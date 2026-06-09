@@ -65,6 +65,13 @@ export async function fetchBusinesses() {
 
 export async function addBusiness(data: Omit<Business, "id" | "slug" | "created_at" | "updated_at">) {
   const supabase = await getSupabaseServer();
+  
+  // Auth check
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
+  if (authError || !user) {
+    throw new Error("Unauthorized");
+  }
+
   const id = `bus${Date.now()}`;
   const slug = slugify(`${data.name}-${Date.now()}`);
   
@@ -92,6 +99,13 @@ export async function addBusiness(data: Omit<Business, "id" | "slug" | "created_
 
 export async function updateBusiness(id: string, data: Partial<Omit<Business, "id" | "slug" | "created_at" | "updated_at">>) {
   const supabase = await getSupabaseServer();
+
+  // Auth check
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
+  if (authError || !user) {
+    throw new Error("Unauthorized");
+  }
+
   const { error } = await supabase
     .from("businesses")
     .update({
@@ -111,6 +125,13 @@ export async function updateBusiness(id: string, data: Partial<Omit<Business, "i
 
 export async function deleteBusiness(id: string) {
   const supabase = await getSupabaseServer();
+
+  // Auth check
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
+  if (authError || !user) {
+    throw new Error("Unauthorized");
+  }
+
   const { error } = await supabase
     .from("businesses")
     .delete()
@@ -127,6 +148,13 @@ export async function deleteBusiness(id: string) {
 
 export async function updateBuilding(data: Partial<Building>) {
   const supabase = await getSupabaseServer();
+
+  // Auth check
+  const { data: { user }, error: authError } = await supabase.auth.getUser();
+  if (authError || !user) {
+    throw new Error("Unauthorized");
+  }
+
   const { error } = await supabase
     .from("buildings")
     .update(data)
@@ -140,3 +168,68 @@ export async function updateBuilding(data: Partial<Building>) {
   revalidatePath("/");
   revalidatePath("/admin");
 }
+
+export async function signInAction(email: string, password: string) {
+  const adminEmail = process.env.ADMIN_EMAIL;
+  const adminPassword = process.env.ADMIN_PASSWORD;
+
+  if (adminEmail && adminPassword) {
+    if (email !== adminEmail || password !== adminPassword) {
+      return { error: "Invalid email or password. Please try again." };
+    }
+  }
+
+  const supabase = await getSupabaseServer();
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  if (error) {
+    // If user does not exist in Auth, try to automatically sign them up
+    if (error.message.includes("Invalid login credentials") || error.status === 400) {
+      try {
+        const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
+          email,
+          password,
+        });
+
+        if (signUpError) {
+          return { error: signUpError.message };
+        }
+
+        // Try signing in again
+        const { data: retryData, error: retryError } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+
+        if (retryError) {
+          if (signUpData.user && !signUpData.session) {
+            return { error: "Admin account registered. Please check your email inbox to confirm and activate sign in." };
+          }
+          return { error: retryError.message };
+        }
+
+        return { success: true };
+      } catch (signUpFail) {
+        return { error: error.message };
+      }
+    }
+    return { error: error.message };
+  }
+
+  return { success: true };
+}
+
+export async function signOutAction() {
+  const supabase = await getSupabaseServer();
+  const { error } = await supabase.auth.signOut();
+  if (error) {
+    console.error("signOutAction error:", error);
+    throw error;
+  }
+  revalidatePath("/");
+  revalidatePath("/admin");
+}
+

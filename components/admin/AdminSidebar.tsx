@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Building2, LayoutDashboard, Settings, X } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { Building2, LayoutDashboard, Settings, X, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { signOutAction } from "@/lib/actions";
 
 const navigation = [
   { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
@@ -16,6 +17,17 @@ interface AdminSidebarProps {
 
 export function AdminSidebar({ onClose }: AdminSidebarProps) {
   const pathname = usePathname();
+  const router = useRouter();
+
+  async function handleSignOut() {
+    try {
+      await signOutAction();
+      router.push("/login");
+      router.refresh();
+    } catch (error) {
+      console.error("Failed to sign out:", error);
+    }
+  }
 
   return (
     <div className="flex h-full w-full flex-col bg-[#0b0c13] border-r border-[#1d1f2e]">
@@ -62,7 +74,7 @@ export function AdminSidebar({ onClose }: AdminSidebarProps) {
           })}
         </nav>
       </div>
-      <div className="border-t border-[#1d1f2e] p-4">
+      <div className="border-t border-[#1d1f2e] p-4 flex flex-col gap-3">
         <Link 
           href="/" 
           onClick={() => onClose?.()}
@@ -70,7 +82,15 @@ export function AdminSidebar({ onClose }: AdminSidebarProps) {
         >
           View Public Directory
         </Link>
+        <button
+          onClick={handleSignOut}
+          className="flex items-center gap-2 text-sm font-semibold text-red-400/80 hover:text-red-400 transition-colors cursor-pointer w-full text-left bg-transparent border-none p-0"
+        >
+          <LogOut className="h-4 w-4" />
+          Sign Out
+        </button>
       </div>
     </div>
   );
 }
+
