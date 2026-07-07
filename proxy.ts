@@ -2,52 +2,81 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function proxy(request: NextRequest) {
-  let supabaseResponse = NextResponse.next({
-    request,
-  });
+  try {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        getAll() {
-          return request.cookies.getAll();
-        },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) => request.cookies.set(name, value));
-          supabaseResponse = NextResponse.next({
-            request,
-          });
-          cookiesToSet.forEach(({ name, value, options }) =>
-            supabaseResponse.cookies.set(name, value, options)
-          );
-        },
-      },
+    if (!supabaseUrl || !supabaseAnonKey) {
+      console.error(
+        "Supabase configuration error in proxy/middleware: NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY is undefined. " +
+        "Please define these environment variables in your Netlify settings under Site configuration > Environment variables, then clear cache and redeploy."
+      );
+      return new Response(
+        "Configuration Error: Supabase URL or Anonymous Key is missing. " +
+        "Please ensure NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are set in your Netlify environment settings.",
+        {
+          status: 500,
+          headers: { "Content-Type": "text/plain" },
+        }
+      );
     }
-  );
 
-  // IMPORTANT: Do not insert any code logic between createServerClient and supabase.auth.getUser()
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    let supabaseResponse = NextResponse.next({
+      request,
+    });
 
-  const isLoginPage = request.nextUrl.pathname.startsWith("/login");
-  const isAdminPage = request.nextUrl.pathname.startsWith("/admin");
+    const supabase = createServerClient(
+      supabaseUrl,
+      supabaseAnonKey,
+      {
+        cookies: {
+          getAll() {
+            return request.cookies.getAll();
+          },
+          setAll(cookiesToSet) {
+            cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
+            supabaseResponse = NextResponse.next({
+              request,
+            });
+            cookiesToSet.forEach(({ name, value, options }) =>
+              supabaseResponse.cookies.set(name, value, options)
+            );
+          },
+        },
+      }
+    );
 
-  if (!user && isAdminPage) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/login";
-    return NextResponse.redirect(url);
+    // IMPORTANT: Do not insert any code logic between createServerClient and supabase.auth.getUser()
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    const isLoginPage = request.nextUrl.pathname.startsWith("/login");
+    const isAdminPage = request.nextUrl.pathname.startsWith("/admin");
+
+    if (!user && isAdminPage) {
+      const url = request.nextUrl.clone();
+      url.pathname = "/login";
+      return NextResponse.redirect(url);
+    }
+
+    if (user && isLoginPage) {
+      const url = request.nextUrl.clone();
+      url.pathname = "/admin";
+      return NextResponse.redirect(url);
+    }
+
+    return supabaseResponse;
+  } catch (error) {
+    console.error("Middleware/Proxy runtime crash:", error);
+    return new Response(
+      `Internal Server Error: ${error instanceof Error ? error.message : String(error)}`,
+      {
+        status: 500,
+        headers: { "Content-Type": "text/plain" },
+      }
+    );
   }
-
-  if (user && isLoginPage) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/admin";
-    return NextResponse.redirect(url);
-  }
-
-  return supabaseResponse;
 }
 
 export const config = {
